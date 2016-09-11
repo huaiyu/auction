@@ -16,3 +16,7 @@ untitled5/__init__.py
 .idea/untitled5.iml
 
 .DS_Store
+
+auction/migrations/__init__.py
+
+auction/migrations/0001_initial.py
