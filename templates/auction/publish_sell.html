@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <script>
+    function preview_sell(){
+        document.publish_sell_form.action="preview_sell";
+        document.publish_sell_form.submit();
+    }
+    function decide_sell(){
+        document.publish_sell_form.action="decide_sell";
+        document.publish_sell_form.submit();
+    }
+</script>
+ <h1>sell</h1>
+    <hr>
+    <p>showname:{{ show.show_name }} </p>
+    <p>showid:{{ show.show_id }}</p>
+    <p>time:{{ show.play_time }} </p>
+    <p>position:{{ show.position }} </p>
+    <p>damaiurl:{{ show.damai_url }} </p>
+    <p>price:{{ show.price_choices }} </p>
+    <hr>
+    <form method="post" name="publish_sell_form">
+        <input type="hidden" name="show_id" value={{ show.show_id }}>
+        <input type="hidden" name="category" value={{ show.show_id }}>
+        <p>原价:<input type="text" name="org_price" value="15"></p>
+        <p>张数:<input type="hidden" name="ticket_num" value="1"/></p>
+        <p>座位号:<input type="text" name="sit_num" value="23"></p>
+        <p>开场时间:<input type="text" name="play_time" value="234"> </p>
+        <p><input type="checkbox" name="lianzuo" value="lianzuo"/>连坐</p>
+        <p><input type="checkbox" name="fenkaimai" value="fenkaimai"/>可分开卖</p>
+        <p>取票码:<input type="text" name="net_ticket_code" value="323"></p>
+        <p>配送方式:
+            <input type="radio" name="pesongfangshi" value="kuaidi">快递
+            <input type="radio" name="pesongfangshi" value="dianziqupiao">电子取票
+            <input type="radio" name="pesongfangshi" value="dangmianjiaoyi">当面交易
+        </p>
+        <p>其他:<textarea name="sell_notes">fdsaf</textarea></p>
+        <hr>
+        <p>总售价</p>
+        <p>初始价格:<input type="text" name="begin_price" value="23"/></p>
+        <p>开场价格:<input type="text" name="end_price" value="45"/></p>
+        <input type="hidden" value="预览" onclick="preview_sell()">
+        <input type="button" value="提交" onclick="decide_sell()">
+        {% csrf_token %}
+    </form>
+</body>
+</html>

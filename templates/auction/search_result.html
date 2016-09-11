@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>search_result</title>
+</head>
+<body>
+<h1>{{ search_action }}_search_result</h1>
+{% for show in all_shows %}
+    <a href="publish_{{ search_action }}?show_id={{ show.show_id }}">
+        <hr>
+        <p>showname:{{ show.show_name }} </p>
+        <p>time:{{ show.play_time }} </p>
+        <p>position:{{ show.position }} </p>
+        <p>damaiurl:{{ show.damai_url }} </p>
+        <p>price:{{ show.price_choices }} </p>
+    </a>
+{% endfor %}
+<div></div>
+</body>
+</html>

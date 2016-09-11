@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>search</title>
+</head>
+<body>
+<h1> {{ search_action }}_search</h1>
+<form action="{{ search_action }}_search_result" method="post">
+    <input type="text" name="search_key" value="李宇春">
+    <input type="submit" value="Submit">
+     {% csrf_token %}
+</form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>decide buy</title>
+</head>
+<body>
+<h1>decide buy</h1>
+    {% if not have_good %}
+        <hr>
+        <h1>sorry 暂时没有匹配的票,有了会第一时间通知你</h1>
+        <hr>
+        <p>showname:{{ buy_case.show.show_name }} </p>
+        <p>time:{{ buy_case.show.play_time }} </p>
+        <p>position:{{ buy_case.show.position }} </p>
+        <p>damaiurl:{{ buy_case.show.damai_url }} </p>
+        <p>price:{{ buy_case.show.price_choices }} </p>
+        <hr>
+        {% if buy_case.lianzuo == "lianzuo" %}
+            <p>连坐</p>
+        {% endif %}
+        <p>{{ buy_case.ticket_num }}张票</p>
+        <p>初始票价:{{ buy_case.online_price }}</p>
+        <p>最终票价:{{ buy_case.offline_price }}</p>
+        <p>其它:{{ buy_case.description }}</p>
+    {% else %}
+        <h1>以下符合要求</h1>
+        {% for good in goods %}
+            <hr>
+            <form action="deal" method="post">
+            <input type="hidden" name="goods_id" value="{{ good.goods_id }}">
+                <input type="hidden" name="buy_case_id" value="{{ buy_case.buy_case_id }}">
+                <p>座位号:{{ good.sit_num }}</p>
+                <p>初始价格:{{ good.online_price }}</p>
+                <p>最终价格:{{ good.offline_price }}</p>
+                <input type="submit" value="买入">
+                {% csrf_token %}
+            </form>
+        {% endfor %}
+    {% endif %}
+
+</body>
+</html>

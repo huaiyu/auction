@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>decide sell</title>
+</head>
+<body>
+    <h1>decide sell</h1>
+    <hr>
+    <p>showname:{{ show.show_name }} </p>
+    <p>time:{{ show.play_time }} </p>
+    <p>position:{{ show.position }} </p>
+    <p>damaiurl:{{ show.damai_url }} </p>
+    <p>price:{{ show.price_choices }} </p>
+    <hr>
+
+
+        <p>原价: {{ sell_case.online_price }}</p>
+        <p>张数:{{ sell_case.ticket_num }}</p>
+        <p>座位号:{{ good.sit_num }}</p>
+        <p>开场时间:{{ good.offline_time }} </p>
+        <p>连坐:{{ sell_case.lianzuo }}</p>
+        <p>可分开卖: {{ sell_case.separate_sell }}</p>
+        <p>取票码:{{ sell_case.net_ticket_code }}</p>
+        <p>配送方式:{{ sell_case.peisongfangshi }}
+        </p>
+        <p>其他:{{ sell_case.description }}</p>
+        <hr>
+        <p>总售价</p>
+        <p>初始价格:{{ sell_case.online_price }}</p>
+        <p>开场价格:{{ sell_case.offline_price }}</p>
+        <a href="/auction" ><input value="首页"></a>
+</body>
+</html>
